@@ -16,14 +16,14 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "joy@example.com",
-    href: "mailto:joy@example.com",
+    value: "ogukahjoy@gmail.com",
+    href: "mailto:ogukahjoy@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (234) 567-8900",
-    href: "tel:+12345678900",
+    value: "+234 8148050257",
+    href: "tel:+2348148050257",
   },
   {
     icon: MapPin,
@@ -34,9 +34,13 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
+  { name: "GitHub", icon: Github, href: "https://github.com/jayoohy" },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/joy-ogukah-b4aba7275/",
+  },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/jay_ooh_y" },
 ];
 
 export default function Contact() {
