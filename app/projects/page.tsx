@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Globe, Smartphone, Bot, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
+import PageContainer from "@/components/layout/PageContainer";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -117,119 +118,117 @@ export default function Projects() {
       : projects.filter((project) => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Page Header */}
+    <PageContainer>
+      {/* Page Header */}
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">My Works</h1>
+        <p className="text-lg text-muted-foreground">
+          A collection of projects I&apos;ve worked on
+        </p>
+      </motion.div>
+
+      {/* Category Filter */}
+      <motion.div
+        className="flex flex-wrap justify-center gap-4 mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {categories.map((category) => {
+          const Icon = category.icon;
+          const isActive = activeCategory === category.id;
+          return (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`flex items-center gap-2 px-6 py-2 rounded-full border transition-colors ${
+                isActive
+                  ? "bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white border-transparent shadow-lg"
+                  : "bg-background border-border hover:border-[#6366f1]/50"
+              }`}
+            >
+              <Icon size={18} />
+              <span>{category.label}</span>
+            </button>
+          );
+        })}
+      </motion.div>
+
+      {/* Projects Grid */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {filteredProjects.map((project) => (
+          <motion.div
+            key={project.id}
+            className="group relative overflow-hidden rounded-lg border border-border bg-card hover:border-[#6366f1]/50 transition-all"
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+          >
+            {/* Project Image Placeholder */}
+            <div className="aspect-video bg-linear-to-br from-[#6366f1]/20 via-[#8b5cf6]/20 to-[#ec4899]/20 flex items-center justify-center">
+              <Globe className="text-[#6366f1]/50" size={48} />
+            </div>
+
+            <div className="p-6">
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                {project.description}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 rounded text-xs bg-muted text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex items-center gap-4">
+                <Link
+                  href={project.liveUrl}
+                  className="flex items-center gap-2 text-sm text-[#6366f1] hover:text-[#8b5cf6] hover:underline font-medium"
+                >
+                  <ExternalLink size={16} />
+                  Live Demo
+                </Link>
+                <Link
+                  href={project.githubUrl}
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#6366f1] font-medium"
+                >
+                  <Github size={16} />
+                  Code
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {filteredProjects.length === 0 && (
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          className="text-center py-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">My Works</h1>
-          <p className="text-lg text-muted-foreground">
-            A collection of projects I&apos;ve worked on
+          <p className="text-muted-foreground">
+            No projects found in this category.
           </p>
         </motion.div>
-
-        {/* Category Filter */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {categories.map((category) => {
-            const Icon = category.icon;
-            const isActive = activeCategory === category.id;
-            return (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center gap-2 px-6 py-2 rounded-full border transition-colors ${
-                  isActive
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-background border-border hover:border-primary/50"
-                }`}
-              >
-                <Icon size={18} />
-                <span>{category.label}</span>
-              </button>
-            );
-          })}
-        </motion.div>
-
-        {/* Projects Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              className="group relative overflow-hidden rounded-lg border border-border bg-card hover:border-primary/50 transition-all"
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-            >
-              {/* Project Image Placeholder */}
-              <div className="aspect-video bg-linear-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <Globe className="text-primary/50" size={48} />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 rounded text-xs bg-muted text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex items-center gap-4">
-                  <Link
-                    href={project.liveUrl}
-                    className="flex items-center gap-2 text-sm text-primary hover:underline"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </Link>
-                  <Link
-                    href={project.githubUrl}
-                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
-                  >
-                    <Github size={16} />
-                    Code
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {filteredProjects.length === 0 && (
-          <motion.div
-            className="text-center py-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <p className="text-muted-foreground">
-              No projects found in this category.
-            </p>
-          </motion.div>
-        )}
-      </div>
-    </div>
+      )}
+    </PageContainer>
   );
 }

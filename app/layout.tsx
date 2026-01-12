@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import Image from "next/image";
 import bgLight from "@/img/bg.jpg";
@@ -22,6 +21,18 @@ export const metadata: Metadata = {
   title: "Joy Ogukah - Software Developer Portfolio",
   description:
     "Portfolio of Joy Ogukah - Frontend Designer, AI Workflow Automation, Chatbots, and Technical Blogging",
+  icons: {
+    icon: [
+      {
+        url: "/favicon2.ico",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon.ico",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -52,13 +63,12 @@ export default function RootLayout({
             priority
             quality={90}
           />
-          <div className="absolute inset-0 bg-background/80 dark:bg-background/90" />
+          <div className="absolute inset-0 bg-background/40 dark:bg-background/60" />
         </div>
 
         <ThemeProvider>
           <Navbar />
           <main className="pt-16 min-h-screen relative z-10">{children}</main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

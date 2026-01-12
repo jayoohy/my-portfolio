@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import PageContainer from "@/components/layout/PageContainer";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -90,68 +91,66 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Page Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Blog</h1>
-          <p className="text-lg text-muted-foreground">
-            Thoughts, tutorials, and insights on web development, AI, and design
-          </p>
-        </motion.div>
+    <PageContainer>
+      {/* Page Header */}
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Blog</h1>
+        <p className="text-lg text-muted-foreground">
+          Thoughts, tutorials, and insights on web development, AI, and design
+        </p>
+      </motion.div>
 
-        {/* Blog Posts Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {blogPosts.map((post) => (
-            <motion.div
-              key={post.id}
-              className="group rounded-lg border border-border bg-card hover:border-primary/50 transition-all overflow-hidden"
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-            >
-              <Link href={`/blog/${post.slug}`}>
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-medium">
-                      {post.category}
-                    </span>
+      {/* Blog Posts Grid */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {blogPosts.map((post) => (
+          <motion.div
+            key={post.id}
+            className="group rounded-lg border border-border bg-card hover:border-[#6366f1]/50 transition-all overflow-hidden"
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+          >
+            <Link href={`/blog/${post.slug}`}>
+              <div className="p-6">
+                <div className="mb-3">
+                  <span className="px-3 py-1 rounded-full text-xs bg-linear-to-r from-[#6366f1]/10 to-[#8b5cf6]/10 text-[#6366f1] font-medium border border-[#6366f1]/20">
+                    {post.category}
+                  </span>
+                </div>
+                <h2 className="text-xl font-semibold mb-3 group-hover:text-[#6366f1] transition-colors">
+                  {post.title}
+                </h2>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                  <div className="flex items-center gap-1">
+                    <Calendar size={14} />
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
                   </div>
-                  <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock size={14} />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                    Read more
-                    <ArrowRight size={16} />
+                  <div className="flex items-center gap-1">
+                    <Clock size={14} />
+                    <span>{post.readTime}</span>
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </div>
+                <div className="flex items-center gap-2 text-[#6366f1] text-sm font-medium group-hover:gap-3 transition-all">
+                  Read more
+                  <ArrowRight size={16} />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
+    </PageContainer>
   );
 }

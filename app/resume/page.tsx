@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Award, Code2 } from "lucide-react";
+import PageContainer from "@/components/layout/PageContainer";
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -16,235 +17,269 @@ const itemVariants = {
 
 const education = [
   {
-    degree: "Bachelor's Degree",
-    institution: "University Name",
-    period: "2018 - 2022",
-    description: "Computer Science or related field",
-  },
-  {
-    degree: "Certifications",
-    institution: "Various Platforms",
-    period: "Ongoing",
-    description: "Continuous learning and skill development",
+    degree: "B.Eng Mechatronics Engineering",
+    institution: "University of Nigeria, Nsukka",
+    period: "2019 - 2024",
+    description:
+      "Graduated top of class with a focus on automation, control systems, and embedded solutions.",
   },
 ];
 
 const experience = [
   {
-    title: "Software Developer",
-    company: "Company Name",
-    period: "2022 - Present",
+    title: "Front-End Developer, Freelance",
+    company: "Contract",
+    period: "Sept 2022 - Present",
     description: [
-      "Developed and maintained web applications using React and Next.js",
-      "Implemented AI workflow automation solutions",
-      "Built and deployed chatbot systems",
-      "Collaborated with cross-functional teams",
+      "Developed custom websites and web applications for clients on contract basis.",
+      "Built responsive, user-friendly interfaces using React, JavaScript, and CSS.",
+      "Integrated Firebase for authentication, real-time data, and back-end functionality.",
+      "Collaborated with clients to translate requirements into technical solutions.",
     ],
   },
   {
-    title: "Frontend Developer",
-    company: "Previous Company",
-    period: "2020 - 2022",
+    title: "Programming Tutor, SuperProf",
+    company: "Jan 2022 - April 2025",
+    period: "Jan 2022 - April 2025",
     description: [
-      "Created responsive user interfaces",
-      "Optimized application performance",
-      "Worked with modern JavaScript frameworks",
+      "Explained complex concepts (React, Redux, JavaScript architecture) to diverse learners.",
+      "Debugged student code and optimized solutions for scalability.",
+      "Created project-based learning modules mirroring real-world workflows.",
     ],
   },
 ];
 
 const awards = [
   {
-    title: "Outstanding Developer",
-    organization: "Tech Community",
-    year: "2023",
+    title: "Best Graduating Student, Mechatronics Engineering",
+    organization: "University of Nigeria, Nsukka",
+    year: "2024",
   },
   {
-    title: "Best Project Award",
-    organization: "Hackathon",
-    year: "2022",
+    title: "Vice President",
+    organization:
+      "Nigerian Association of Mechatronics Engineering Students (2020/2021)",
+    year: "2021",
   },
 ];
 
 const techStacks = [
   {
-    category: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    category: "Technical Skills",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Redux",
+      "Firebase",
+      "Responsive UI & UI Frameworks",
+      "GraphQL & REST APIs",
+      "Version Control (Git)",
+      "Jest & React Testing Library",
+    ],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", "REST APIs", "GraphQL"],
+    category: "Programming & Tools",
+    skills: [
+      "Python",
+      "C++",
+      "JavaScript",
+      "TypeScript",
+      "Git",
+      "VS Code",
+      "Arduino IDE",
+    ],
   },
   {
-    category: "AI/ML",
-    skills: ["OpenAI API", "LangChain", "Workflow Automation"],
+    category: "Automation & Control",
+    skills: [
+      "PLC Systems",
+      "Sensor Calibration",
+      "Motor Control",
+      "Embedded Systems",
+    ],
   },
-  { category: "Tools", skills: ["Git", "Docker", "CI/CD", "AWS", "Vercel"] },
+  {
+    category: "Web & Software Development",
+    skills: ["React", "Firebase", "API Integration"],
+  },
+  {
+    category: "Engineering Tools",
+    skills: ["MATLAB", "CAD basics"],
+  },
+  {
+    category: "Soft Skills",
+    skills: [
+      "Problem Solving",
+      "Team Collaboration",
+      "Adaptability",
+      "Leadership",
+    ],
+  },
 ];
 
 export default function Resume() {
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Page Header */}
+    <PageContainer>
+      {/* Page Header */}
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Resume</h1>
+        <p className="text-lg text-muted-foreground">
+          My education, experience, and technical expertise
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Education */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Resume</h1>
-          <p className="text-lg text-muted-foreground">
-            My education, experience, and technical expertise
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <GraduationCap className="text-primary" size={24} />
-              </div>
-              <h2 className="text-2xl font-bold">Education</h2>
-            </div>
-            <div className="space-y-6">
-              {education.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  className="p-6 rounded-lg border border-border bg-card"
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <h3 className="text-lg font-semibold mb-1">{edu.degree}</h3>
-                  <p className="text-primary mb-2">{edu.institution}</p>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {edu.period}
-                  </p>
-                  <p className="text-muted-foreground">{edu.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Experience */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Briefcase className="text-primary" size={24} />
-              </div>
-              <h2 className="text-2xl font-bold">Experience</h2>
-            </div>
-            <div className="space-y-6">
-              {experience.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  className="p-6 rounded-lg border border-border bg-card"
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                >
-                  <h3 className="text-lg font-semibold mb-1">{exp.title}</h3>
-                  <p className="text-primary mb-2">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {exp.period}
-                  </p>
-                  <ul className="space-y-2">
-                    {exp.description.map((item, i) => (
-                      <li
-                        key={i}
-                        className="text-muted-foreground text-sm flex items-start"
-                      >
-                        <span className="mr-2">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Awards */}
-        <motion.div
-          className="mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <Award className="text-primary" size={24} />
+            <div className="p-2 rounded-lg bg-[#6366f1]/10">
+              <GraduationCap className="text-[#6366f1]" size={24} />
             </div>
-            <h2 className="text-2xl font-bold">Awards & Achievements</h2>
+            <h2 className="text-2xl font-bold">Education</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {awards.map((award, index) => (
+          <div className="space-y-6">
+            {education.map((edu, index) => (
               <motion.div
                 key={index}
                 className="p-6 rounded-lg border border-border bg-card"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: index * 0.1 }}
               >
-                <h3 className="text-lg font-semibold mb-1">{award.title}</h3>
-                <p className="text-primary mb-1">{award.organization}</p>
-                <p className="text-sm text-muted-foreground">{award.year}</p>
+                <h3 className="text-lg font-semibold mb-1">{edu.degree}</h3>
+                <p className="text-[#6366f1] mb-2">{edu.institution}</p>
+                <p className="text-sm text-muted-foreground mb-2">
+                  {edu.period}
+                </p>
+                <p className="text-muted-foreground">{edu.description}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Tech Stacks */}
+        {/* Experience */}
         <motion.div
-          className="mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <Code2 className="text-primary" size={24} />
+            <div className="p-2 rounded-lg bg-[#8b5cf6]/10">
+              <Briefcase className="text-[#8b5cf6]" size={24} />
             </div>
-            <h2 className="text-2xl font-bold">Technical Skills</h2>
+            <h2 className="text-2xl font-bold">Experience</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {techStacks.map((stack, index) => (
+          <div className="space-y-6">
+            {experience.map((exp, index) => (
               <motion.div
                 key={index}
                 className="p-6 rounded-lg border border-border bg-card"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.3 + index * 0.1 }}
               >
-                <h3 className="text-lg font-semibold mb-4">{stack.category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {stack.skills.map((skill, i) => (
-                    <span
+                <h3 className="text-lg font-semibold mb-1">{exp.title}</h3>
+                <p className="text-[#8b5cf6] mb-2">{exp.company}</p>
+                <p className="text-sm text-muted-foreground mb-3">
+                  {exp.period}
+                </p>
+                <ul className="space-y-2">
+                  {exp.description.map((item, i) => (
+                    <li
                       key={i}
-                      className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium"
+                      className="text-muted-foreground text-sm flex items-start"
                     >
-                      {skill}
-                    </span>
+                      <span className="mr-2">•</span>
+                      <span>{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
-    </div>
+
+      {/* Awards */}
+      <motion.div
+        className="mt-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 rounded-lg bg-[#ec4899]/10">
+            <Award className="text-[#ec4899]" size={24} />
+          </div>
+          <h2 className="text-2xl font-bold">Awards & Achievements</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {awards.map((award, index) => (
+            <motion.div
+              key={index}
+              className="p-6 rounded-lg border border-border bg-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + index * 0.1 }}
+            >
+              <h3 className="text-lg font-semibold mb-1">{award.title}</h3>
+              <p className="text-[#ec4899] mb-1">{award.organization}</p>
+              <p className="text-sm text-muted-foreground">{award.year}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Tech Stacks */}
+      <motion.div
+        className="mt-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 rounded-lg bg-[#6366f1]/10">
+            <Code2 className="text-[#6366f1]" size={24} />
+          </div>
+          <h2 className="text-2xl font-bold">Technical Skills</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {techStacks.map((stack, index) => (
+            <motion.div
+              key={index}
+              className="p-6 rounded-lg border border-border bg-card"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7 + index * 0.1 }}
+            >
+              <h3 className="text-lg font-semibold mb-4">{stack.category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {stack.skills.map((skill, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 rounded-full bg-linear-to-r from-[#6366f1]/10 to-[#8b5cf6]/10 text-[#6366f1] text-sm font-medium border border-[#6366f1]/20"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </PageContainer>
   );
 }

@@ -12,19 +12,27 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme") as Theme | null;
-      if (savedTheme) return savedTheme;
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      return prefersDark ? "dark" : "light";
-    }
-    return "light";
-  });
+  // Start deterministic, then hydrate with preference on mount (delayed setState to avoid cascading).
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const nextTheme: Theme = savedTheme ?? (prefersDark ? "dark" : "light");
+
+    // Defer to avoid synchronous setState warning
+    const id = requestAnimationFrame(() => setTheme(nextTheme));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  // Keep the <html> class and localStorage in sync with the current theme.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");

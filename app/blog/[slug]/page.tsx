@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import PageContainer from "@/components/layout/PageContainer";
 
 // This would typically fetch from a CMS or markdown files
 const blogPosts: Record<
@@ -509,12 +510,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <article className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+    <PageContainer>
+      <article className="max-w-3xl mx-auto">
         {/* Back Button */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#6366f1] mb-8 transition-colors"
         >
           <ArrowLeft size={18} />
           Back to Blog
@@ -523,7 +524,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         {/* Post Header */}
         <header className="mb-8">
           <div className="mb-4">
-            <span className="px-3 py-1 rounded-full text-sm bg-primary/10 text-primary font-medium">
+            <span className="px-3 py-1 rounded-full text-sm bg-linear-to-r from-[#6366f1]/10 to-[#8b5cf6]/10 text-[#6366f1] font-medium border border-[#6366f1]/20">
               {post.category}
             </span>
           </div>
@@ -545,13 +546,13 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           className="prose prose-neutral dark:prose-invert max-w-none
             prose-headings:font-bold prose-headings:text-foreground
             prose-p:text-muted-foreground prose-p:leading-relaxed
-            prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+            prose-a:text-[#6366f1] prose-a:no-underline hover:prose-a:underline hover:prose-a:text-[#8b5cf6]
             prose-strong:text-foreground
             prose-ul:list-disc prose-ol:list-decimal
             prose-li:text-muted-foreground"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-      </div>
-    </article>
+      </article>
+    </PageContainer>
   );
 }
