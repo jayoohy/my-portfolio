@@ -1,17 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+// import { useState } from "react";
 import {
   Mail,
   Phone,
   MapPin,
-  Send,
+  // Send,
   Github,
   Linkedin,
   Twitter,
 } from "lucide-react";
 import PageContainer from "@/components/layout/PageContainer";
+import TallyEmbed from "@/components/TallyEmbed";
+import { usePathname } from "next/navigation";
 
 const contactInfo = [
   {
@@ -45,34 +47,36 @@ const socialLinks = [
 ];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const pathname = usePathname();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   subject: "",
+  //   message: "",
+  // });
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Thank you for your message! I'll get back to you soon.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1000);
-  };
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  //   // Simulate form submission
+  //   setTimeout(() => {
+  //     setIsSubmitting(false);
+  //     alert("Thank you for your message! I'll get back to you soon.");
+  //     setFormData({ name: "", email: "", subject: "", message: "" });
+  //   }, 1000);
+  // };
+
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   return (
     <PageContainer>
@@ -244,15 +248,7 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="rounded-lg border bg-white border-border p-4"
         >
-          <iframe
-            suppressHydrationWarning
-            data-tally-src="https://tally.so/embed/LZKplO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="400"
-            frameBorder="0"
-            title="Contact form"
-          />
+          <TallyEmbed key={pathname} />
         </motion.div>
       </div>
     </PageContainer>
