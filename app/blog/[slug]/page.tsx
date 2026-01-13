@@ -58,7 +58,7 @@ const blogPosts: Record<
       <h2>Conclusion</h2>
       <p>The App Router in Next.js 14 represents the future of React development. With its focus on performance, developer experience, and modern React features, it's an excellent choice for building your next application. Start experimenting with it today and experience the benefits firsthand!</p>
     `,
-    date: "2024-01-15",
+    date: "2025-11-15",
     readTime: "5 min read",
     category: "Web Development",
   },
@@ -124,7 +124,7 @@ async function chat(messages) {
       <h2>Conclusion</h2>
       <p>Building AI-powered chatbots with OpenAI opens up endless possibilities for creating engaging user experiences. By following best practices and understanding the API's capabilities, you can build chatbots that are both intelligent and useful. Start experimenting with different prompts and configurations to find what works best for your use case!</p>
     `,
-    date: "2024-01-10",
+    date: "2025-12-10",
     readTime: "8 min read",
     category: "AI & Automation",
   },
@@ -191,7 +191,7 @@ async function chat(messages) {
       <h2>Conclusion</h2>
       <p>Understanding and applying modern frontend design patterns will significantly improve your code quality and development experience. Start with component composition and custom hooks, then explore other patterns as your application grows in complexity.</p>
     `,
-    date: "2024-01-05",
+    date: "2025-12-20",
     readTime: "6 min read",
     category: "Design",
   },
@@ -260,7 +260,7 @@ result = chain.run("I need help with my order")</code></pre>
       <h2>Conclusion</h2>
       <p>LangChain provides a powerful framework for building AI-powered workflow automation. By understanding its core concepts and patterns, you can create sophisticated automation systems that save time and improve efficiency. Start experimenting with simple chains and gradually build more complex workflows as you become more comfortable with the framework.</p>
     `,
-    date: "2023-12-28",
+    date: "2025-11-28",
     readTime: "10 min read",
     category: "AI & Automation",
   },
@@ -374,7 +374,7 @@ type UserWithoutId = Omit<User, 'id'>;</code></pre>
       <h2>Conclusion</h2>
       <p>Following TypeScript best practices in React will significantly improve your code quality and developer experience. Start with proper prop typing and gradually adopt more advanced patterns as your application grows. Remember, the goal is to catch errors early and make your code more maintainable.</p>
     `,
-    date: "2023-12-20",
+    date: "2025-12-28",
     readTime: "7 min read",
     category: "Web Development",
   },
@@ -490,7 +490,7 @@ type UserWithoutId = Omit<User, 'id'>;</code></pre>
       <h2>Conclusion</h2>
       <p>Tailwind CSS makes responsive design straightforward and maintainable. By following a mobile-first approach and leveraging Tailwind's utility classes, you can create beautiful, responsive interfaces that work seamlessly across all devices. Remember to test your designs on various screen sizes and devices to ensure the best user experience.</p>
     `,
-    date: "2023-12-15",
+    date: "2026-01-07",
     readTime: "4 min read",
     category: "Design",
   },
