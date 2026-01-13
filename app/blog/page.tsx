@@ -32,7 +32,7 @@ const blogPosts = [
     title: "Getting Started with Next.js 14 App Router",
     excerpt:
       "A comprehensive guide to building modern web applications with Next.js 14's new App Router and React Server Components.",
-    date: "2024-01-15",
+    date: "2025-11-15",
     readTime: "5 min read",
     category: "Web Development",
     slug: "getting-started-with-nextjs-14",
@@ -42,7 +42,7 @@ const blogPosts = [
     title: "Building AI-Powered Chatbots with OpenAI",
     excerpt:
       "Learn how to create intelligent chatbots using OpenAI's API, including best practices for prompt engineering and conversation flow.",
-    date: "2024-01-10",
+    date: "2025-12-10",
     readTime: "8 min read",
     category: "AI & Automation",
     slug: "building-ai-chatbots-openai",
@@ -52,7 +52,7 @@ const blogPosts = [
     title: "Modern Frontend Design Patterns",
     excerpt:
       "Exploring modern design patterns and best practices for building scalable and maintainable frontend applications.",
-    date: "2024-01-05",
+    date: "2025-12-20",
     readTime: "6 min read",
     category: "Design",
     slug: "modern-frontend-design-patterns",
@@ -62,7 +62,7 @@ const blogPosts = [
     title: "Workflow Automation with LangChain",
     excerpt:
       "A deep dive into automating business workflows using LangChain and AI agents to streamline processes.",
-    date: "2023-12-28",
+    date: "2025-11-28",
     readTime: "10 min read",
     category: "AI & Automation",
     slug: "workflow-automation-langchain",
@@ -72,7 +72,7 @@ const blogPosts = [
     title: "TypeScript Best Practices for React",
     excerpt:
       "Essential TypeScript patterns and practices for writing type-safe React applications with better developer experience.",
-    date: "2023-12-20",
+    date: "2025-12-28",
     readTime: "7 min read",
     category: "Web Development",
     slug: "typescript-best-practices-react",
@@ -82,7 +82,7 @@ const blogPosts = [
     title: "Responsive Design with Tailwind CSS",
     excerpt:
       "Mastering responsive design using Tailwind CSS utility classes and modern CSS techniques for mobile-first development.",
-    date: "2023-12-15",
+    date: "2026-01-07",
     readTime: "4 min read",
     category: "Design",
     slug: "responsive-design-tailwind",
