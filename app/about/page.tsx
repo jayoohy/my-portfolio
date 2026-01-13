@@ -85,7 +85,7 @@ export default function About() {
             variants={itemVariants}
           >
             <h2 className="text-xl font-semibold mb-3">{section.title}</h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-justify">
               {section.content}
             </p>
           </motion.div>
@@ -94,14 +94,18 @@ export default function About() {
           className="p-6 rounded-lg border border-border bg-card"
           variants={itemVariants}
         >
-          <h2 className="text-xl font-semibold mb-3">Personal Information</h2>
+          <h2 className="text-xl font-semibold mb-3">Personal Info</h2>
           <p className="text-muted-foreground leading-relaxed">
-            <span className="font-bold text-black/80">Location</span>: Available
-            for remote work
+            <span className="font-bold text-black/80 dark:text-white/80">
+              Location
+            </span>
+            : Available for remote work
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            <span className="font-bold text-black/80">Availability</span>: Open
-            to new opportunities
+            <span className="font-bold text-black/80 dark:text-white/80">
+              Availability
+            </span>
+            : Open to new opportunities
           </p>
         </motion.div>
       </motion.div>

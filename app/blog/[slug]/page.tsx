@@ -502,12 +502,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = blogPosts[params.slug];
+type BlogParams = {
+  params: Promise<{
+    slug: keyof typeof blogPosts;
+  }>;
+};
 
-  if (!post) {
-    notFound();
-  }
+export default async function BlogPost({ params }: BlogParams) {
+  const { slug } = await params;
+  const post = blogPosts[slug];
+  if (!post) notFound();
 
   return (
     <PageContainer>
@@ -542,14 +546,53 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </header>
 
         {/* Post Content */}
+        <style>{`
+          .blog-content h2 {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+          }
+          .blog-content h3 {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+          }
+          .blog-content p {
+            margin-bottom: 1rem;
+            line-height: 1.625;
+          }
+          .blog-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+          }
+          .blog-content ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+          }
+          .blog-content li {
+            margin-bottom: 0.5rem;
+          }
+          .blog-content pre {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+          }
+          .blog-content code {
+            font-family: monospace;
+            font-size: 0.875rem;
+          }
+          .blog-content pre code {
+            background-color: transparent;
+          }
+        `}</style>
         <div
-          className="prose prose-neutral dark:prose-invert max-w-none
-            prose-headings:font-bold prose-headings:text-foreground
-            prose-p:text-muted-foreground prose-p:leading-relaxed
-            prose-a:text-[#6366f1] prose-a:no-underline hover:prose-a:underline hover:prose-a:text-[#8b5cf6]
-            prose-strong:text-foreground
-            prose-ul:list-disc prose-ol:list-decimal
-            prose-li:text-muted-foreground"
+          className="blog-content overflow-hidden"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>

@@ -27,8 +27,8 @@ const education = [
 
 const experience = [
   {
-    title: "Front-End Developer, Freelance",
-    company: "Contract",
+    title: "Front-End Developer",
+    company: "Freelance",
     period: "Sept 2022 - Present",
     description: [
       "Developed custom websites and web applications for clients on contract basis.",
@@ -38,8 +38,8 @@ const experience = [
     ],
   },
   {
-    title: "Programming Tutor, SuperProf",
-    company: "Jan 2022 - April 2025",
+    title: "Programming Tutor",
+    company: "SuperProf",
     period: "Jan 2022 - April 2025",
     description: [
       "Explained complex concepts (React, Redux, JavaScript architecture) to diverse learners.",
@@ -106,7 +106,7 @@ const techStacks = [
   },
   {
     category: "Engineering Tools",
-    skills: ["MATLAB", "CAD basics"],
+    skills: ["MATLAB", "Solidworks", "CAD basics"],
   },
   {
     category: "Soft Skills",
@@ -143,8 +143,8 @@ export default function Resume() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-[#6366f1]/10">
-              <GraduationCap className="text-[#6366f1]" size={24} />
+            <div className="p-2 rounded-lg bg-[#25b94a]/10">
+              <GraduationCap className="text-[#25b94a]" size={24} />
             </div>
             <h2 className="text-2xl font-bold">Education</h2>
           </div>
@@ -159,7 +159,7 @@ export default function Resume() {
                 transition={{ delay: index * 0.1 }}
               >
                 <h3 className="text-lg font-semibold mb-1">{edu.degree}</h3>
-                <p className="text-[#6366f1] mb-2">{edu.institution}</p>
+                <p className="text-[#25b94a] mb-2">{edu.institution}</p>
                 <p className="text-sm text-muted-foreground mb-2">
                   {edu.period}
                 </p>
@@ -176,8 +176,8 @@ export default function Resume() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-[#8b5cf6]/10">
-              <Briefcase className="text-[#8b5cf6]" size={24} />
+            <div className="p-2 rounded-lg bg-[#a86d14]/10">
+              <Briefcase className="text-[#a86d14]" size={24} />
             </div>
             <h2 className="text-2xl font-bold">Experience</h2>
           </div>
@@ -192,7 +192,7 @@ export default function Resume() {
                 transition={{ delay: 0.3 + index * 0.1 }}
               >
                 <h3 className="text-lg font-semibold mb-1">{exp.title}</h3>
-                <p className="text-[#8b5cf6] mb-2">{exp.company}</p>
+                <p className="text-[#a86d14] mb-2">{exp.company}</p>
                 <p className="text-sm text-muted-foreground mb-3">
                   {exp.period}
                 </p>
@@ -221,8 +221,8 @@ export default function Resume() {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-lg bg-[#ec4899]/10">
-            <Award className="text-[#ec4899]" size={24} />
+          <div className="p-2 rounded-lg bg-[#a9165f]/10">
+            <Award className="text-[#a9165f]" size={24} />
           </div>
           <h2 className="text-2xl font-bold">Awards & Achievements</h2>
         </div>
@@ -236,7 +236,7 @@ export default function Resume() {
               transition={{ delay: 0.5 + index * 0.1 }}
             >
               <h3 className="text-lg font-semibold mb-1">{award.title}</h3>
-              <p className="text-[#ec4899] mb-1">{award.organization}</p>
+              <p className="text-[#a9165f] mb-1">{award.organization}</p>
               <p className="text-sm text-muted-foreground">{award.year}</p>
             </motion.div>
           ))}

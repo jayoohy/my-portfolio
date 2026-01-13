@@ -150,7 +150,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Form */}
-        <motion.form
+        {/* <motion.form
           onSubmit={handleSubmit}
           className="space-y-6"
           initial={{ opacity: 0, x: 20 }}
@@ -224,7 +224,7 @@ export default function Contact() {
           <motion.button
             type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white font-medium hover:from-[#4f46e5] hover:to-[#7c3aed] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#a9165f] text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -237,7 +237,23 @@ export default function Contact() {
               </>
             )}
           </motion.button>
-        </motion.form>
+        </motion.form> */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="rounded-lg border bg-white border-border p-4"
+        >
+          <iframe
+            suppressHydrationWarning
+            data-tally-src="https://tally.so/embed/LZKplO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="400"
+            frameBorder="0"
+            title="Contact form"
+          />
+        </motion.div>
       </div>
     </PageContainer>
   );

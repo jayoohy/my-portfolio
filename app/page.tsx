@@ -57,7 +57,7 @@ const socialLinks = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <motion.div
         className="flex flex-col items-center text-center max-w-2xl w-full"
         variants={containerVariants}
@@ -67,7 +67,6 @@ export default function Home() {
         {/* Profile Image */}
         <motion.div variants={itemVariants}>
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto">
-            <div className="absolute inset-0 rounded-full bg-linear-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] p-1 animate-pulse" />
             <div className="relative w-full h-full rounded-full overflow-hidden bg-background p-1">
               <Image
                 src={meImage}
@@ -82,7 +81,7 @@ export default function Home() {
 
         {/* Name */}
         <motion.h1
-          className="text-3xl sm:text-4xl lg:text-5xl leading-normal text-foreground font-bold mb-3"
+          className="text-2xl sm:text-3xl lg:text-4xl leading-normal text-foreground font-bold"
           variants={itemVariants}
         >
           Joy Ogukah
@@ -129,7 +128,7 @@ export default function Home() {
           <Link
             href="/Joy_Ogukah_Frontend_CV.pdf"
             download="Joy_Ogukah_Frontend_CV.pdf"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white font-semibold hover:from-[#4f46e5] hover:to-[#7c3aed] transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#a9165f] text-white font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Download size={20} />
             Download CV

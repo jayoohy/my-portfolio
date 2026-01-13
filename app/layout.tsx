@@ -68,8 +68,12 @@ export default function RootLayout({
 
         <ThemeProvider>
           <Navbar />
-          <main className="pt-16 min-h-screen relative z-10">{children}</main>
+          <main className="pt-16 lg:pt-0 min-h-screen relative z-10">
+            {children}
+          </main>
         </ThemeProvider>
+
+        <script async src="https://tally.so/widgets/embed.js"></script>
       </body>
     </html>
   );

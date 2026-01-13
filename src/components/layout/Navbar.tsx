@@ -7,6 +7,18 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/theme/ThemeProvider";
+import localFont from "next/font/local";
+import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
+
+const myFont = localFont({
+  src: [
+    {
+      path: "../../../public/typogama-ahsing.otf",
+      style: "normal",
+    },
+  ],
+  variable: "--font-my-font",
+});
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -29,7 +41,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl sm:text-2xl lg:text-3xl font-bold bg-linear-to-r leading-normal from-[#ec4899] via-[#931993] to-[#6366f1] bg-clip-text text-transparent"
+            className={`${myFont.className} text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wider leading-normal bg-[#a9165f] bg-clip-text text-transparent`}
           >
             Joy Ogukah
           </Link>
@@ -43,9 +55,9 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary",
+                    "text-sm font-medium transition-colors hover:text-[#a9165f]",
                     isActive
-                      ? "text-primary border-b-2 border-primary"
+                      ? "text-[#a9165f] font-bold underline underline-offset-10 decoration-2 decoration-[#a9165f]"
                       : "text-muted-foreground"
                   )}
                 >
@@ -54,13 +66,9 @@ export default function Navbar() {
               );
             })}
             {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
+            <div className="p-2 flex rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
+              <AnimatedThemeToggler />
+            </div>
           </div>
 
           {/* Mobile Menu Button & Theme Toggle */}

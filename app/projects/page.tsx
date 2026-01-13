@@ -2,9 +2,16 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Globe, Smartphone, Bot, ExternalLink, Github } from "lucide-react";
+import { Globe, Bot, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import PageContainer from "@/components/layout/PageContainer";
+import Image from "next/image";
+import Pic1 from "@/img/project1.jpg";
+import Pic2 from "@/img/project2.jpg";
+import Pic3 from "@/img/project3.jpg";
+import Pic4 from "@/img/project4.jpg";
+import Pic5 from "@/img/project5.jpg";
+import Pic6 from "@/img/project6.jpg";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,74 +34,73 @@ const itemVariants = {
   },
 };
 
-type ProjectCategory = "all" | "web" | "mobile" | "ai";
+type ProjectCategory = "all" | "web" | "ai";
 
 const projects = [
   {
     id: 1,
     title: "E-Commerce Platform",
     description:
-      "A modern e-commerce platform built with Next.js and TypeScript, featuring real-time inventory management and payment integration.",
+      "A modern e-commerce web application built with React, Redux, Vite, Firebase and Stripe for payments.",
     category: "web" as ProjectCategory,
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
-    image: "/project-1.jpg",
-    liveUrl: "#",
-    githubUrl: "#",
+    tags: ["TypeScript", "Stripe", "Redux", "Firebase"],
+    image: Pic1,
+    liveUrl: "https://crwnbrand.netlify.app/",
+    githubUrl: "https://github.com/jayoohy/crwn-brand",
   },
   {
     id: 2,
-    title: "AI Workflow Automation",
+    title: "PantryPal",
     description:
-      "An intelligent automation system that streamlines business processes using AI and machine learning.",
-    category: "ai" as ProjectCategory,
-    tags: ["Python", "OpenAI", "LangChain", "FastAPI"],
-    image: "/project-2.jpg",
-    liveUrl: "#",
-    githubUrl: "#",
+      "A recipe search app where users can enter ingredients and get recipes with images, instructions, and nutrition details.",
+    category: "web" as ProjectCategory,
+    tags: ["TypeScript", "Redux", "TailwindCSS", "Vite"],
+    image: Pic2,
+    liveUrl: "https://dpantrypal.netlify.app/",
+    githubUrl: "https://github.com/jayoohy/pantrypal",
   },
   {
     id: 3,
-    title: "Mobile Banking App",
+    title: "Money Trail",
     description:
-      "A secure mobile banking application with biometric authentication and real-time transaction updates.",
-    category: "mobile" as ProjectCategory,
-    tags: ["React Native", "TypeScript", "Firebase", "Stripe"],
-    image: "/project-3.jpg",
-    liveUrl: "#",
-    githubUrl: "#",
+      "A simple expense and income tracker where users can log financial transactions, categorize them, and see charts of their spending habits.",
+    category: "web" as ProjectCategory,
+    tags: ["TypeScript", "Recharts", "Redux Toolkit", "PWA"],
+    image: Pic3,
+    liveUrl: "https://moneyytrail.netlify.app/",
+    githubUrl: "https://github.com/jayoohy/money-trail",
   },
   {
     id: 4,
-    title: "Customer Support Chatbot",
+    title: "Monsters Rolodex",
     description:
-      "An intelligent chatbot that handles customer inquiries using natural language processing and AI.",
-    category: "ai" as ProjectCategory,
-    tags: ["OpenAI", "Node.js", "WebSocket", "React"],
-    image: "/project-4.jpg",
+      "A simple React + TypeScript app that displays a list of 'monsters' (users) fetched from an API",
+    category: "web" as ProjectCategory,
+    tags: ["TypeScript", "React", "CSS", "Vite"],
+    image: Pic4,
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/jayoohy/monsters-rolodex",
   },
   {
     id: 5,
-    title: "Portfolio Website",
+    title: "Keeper App",
     description:
-      "A responsive portfolio website showcasing projects and skills with smooth animations.",
+      "A minimalist note taking app, where users can add and delete notes, built with React.",
     category: "web" as ProjectCategory,
-    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
-    image: "/project-5.jpg",
+    tags: ["React", "JavaScript", "CSS"],
+    image: Pic5,
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/jayoohy/keeper-app",
   },
   {
     id: 6,
-    title: "Fitness Tracking App",
-    description:
-      "A mobile app for tracking workouts, nutrition, and fitness goals with social features.",
-    category: "mobile" as ProjectCategory,
-    tags: ["React Native", "Firebase", "GraphQL", "TypeScript"],
-    image: "/project-6.jpg",
+    title: "Gatsby Blog",
+    description: "Blog built with GatsbyJS and Graphql.",
+    category: "web" as ProjectCategory,
+    tags: ["GatsbyJS", "JavaScript", "GraphQL"],
+    image: Pic6,
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/jayoohy/gatsby-blog",
   },
 ];
 
@@ -105,7 +111,6 @@ const categories: {
 }[] = [
   { id: "all", label: "All Projects", icon: Globe },
   { id: "web", label: "Web", icon: Globe },
-  { id: "mobile", label: "Mobile", icon: Smartphone },
   { id: "ai", label: "AI & Automation", icon: Bot },
 ];
 
@@ -174,13 +179,22 @@ export default function Projects() {
             whileHover={{ y: -5 }}
           >
             {/* Project Image Placeholder */}
-            <div className="aspect-video bg-linear-to-br from-[#6366f1]/20 via-[#8b5cf6]/20 to-[#ec4899]/20 flex items-center justify-center">
-              <Globe className="text-[#6366f1]/50" size={48} />
+            <div className="relative aspect-video bg-linear-to-br from-[#6366f1]/20 via-[#8b5cf6]/20 to-[#ec4899]/20 flex items-center justify-center">
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <Globe className="text-[#6366f1]/50" size={48} />
+              )}
             </div>
 
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+              <p className="text-muted-foreground text-sm mb-4">
                 {project.description}
               </p>
 
@@ -198,13 +212,20 @@ export default function Projects() {
 
               {/* Links */}
               <div className="flex items-center gap-4">
-                <Link
-                  href={project.liveUrl}
-                  className="flex items-center gap-2 text-sm text-[#6366f1] hover:text-[#8b5cf6] hover:underline font-medium"
-                >
-                  <ExternalLink size={16} />
-                  Live Demo
-                </Link>
+                {project.liveUrl !== "#" ? (
+                  <Link
+                    href={project.liveUrl}
+                    className="flex items-center gap-2 text-sm text-[#6366f1] hover:text-[#8b5cf6] hover:underline font-medium"
+                  >
+                    <ExternalLink size={16} />
+                    Live Demo
+                  </Link>
+                ) : (
+                  <span className="flex items-center gap-2 text-sm text-muted-foreground font-medium opacity-60 cursor-not-allowed">
+                    <ExternalLink size={16} />
+                    Live Demo
+                  </span>
+                )}
                 <Link
                   href={project.githubUrl}
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#6366f1] font-medium"
