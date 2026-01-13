@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Joy Ogukah - Software Developer Portfolio",
   description:
-    "Portfolio of Joy Ogukah - Frontend Designer, AI Workflow Automation, Chatbots, and Technical Blogging",
+    "Portfolio of Joy Ogukah - Frontend Developer, AI Workflow Automation, Chatbots, and Technical Blogging",
   icons: {
     icon: [
       {
@@ -32,6 +32,27 @@ export const metadata: Metadata = {
         media: "(prefers-color-scheme: dark)",
       },
     ],
+  },
+  openGraph: {
+    title: "Joy Ogukah | Frontend Developer",
+    description: "Portfolio of Joy Ogukah – frontend developer.",
+    url: "https://my-portfolio-ten-pi-ntxr4q5nit.vercel.app/",
+    siteName: "Joy Ogukah",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Joy Ogukah Portfolio",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joy Ogukah | Frontend Developer",
+    description: "Portfolio of Joy Ogukah – frontend developer.",
+    images: ["/og-image.png"],
   },
 };
 
