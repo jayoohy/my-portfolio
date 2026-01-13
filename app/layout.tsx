@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Joy Ogukah | Frontend Developer",
     description: "Portfolio of Joy Ogukah – frontend developer.",
-    url: "https://my-portfolio-ten-pi-ntxr4q5nit.vercel.app/",
+    url: "https://joyogukah.vercel.app/",
     siteName: "Joy Ogukah",
     images: [
       {
