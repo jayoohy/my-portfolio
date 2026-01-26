@@ -12,6 +12,7 @@ import Pic3 from "@/img/project3.jpg";
 import Pic4 from "@/img/project4.jpg";
 import Pic5 from "@/img/project5.jpg";
 import Pic6 from "@/img/project6.jpg";
+import Pic7 from "@/img/project7.jpg";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -39,6 +40,17 @@ type ProjectCategory = "all" | "web" | "ai";
 const projects = [
   {
     id: 1,
+    title: "DevEvent",
+    description:
+      "A full-stack NextJs application for discovering, creating, and booking developer-focused events in Nigeria.",
+    category: "web" as ProjectCategory,
+    tags: ["NextJS", "TypeScript", "MongoDB", "Posthog"],
+    image: Pic7,
+    liveUrl: "https://dev-events-naija.vercel.app/",
+    githubUrl: "https://github.com/jayoohy/dev-event",
+  },
+  {
+    id: 2,
     title: "E-Commerce Platform",
     description:
       "A modern e-commerce web application built with React, Redux, Vite, Firebase and Stripe for payments.",
@@ -49,7 +61,7 @@ const projects = [
     githubUrl: "https://github.com/jayoohy/crwn-brand",
   },
   {
-    id: 2,
+    id: 3,
     title: "PantryPal",
     description:
       "A recipe search app where users can enter ingredients and get recipes with images, instructions, and nutrition details.",
@@ -60,7 +72,7 @@ const projects = [
     githubUrl: "https://github.com/jayoohy/pantrypal",
   },
   {
-    id: 3,
+    id: 4,
     title: "Money Trail",
     description:
       "A simple expense and income tracker where users can log financial transactions, categorize them, and see charts of their spending habits.",
@@ -71,7 +83,7 @@ const projects = [
     githubUrl: "https://github.com/jayoohy/money-trail",
   },
   {
-    id: 4,
+    id: 5,
     title: "Monsters Rolodex",
     description:
       "A simple React + TypeScript app that displays a list of 'monsters' (users) fetched from an API",
@@ -82,7 +94,7 @@ const projects = [
     githubUrl: "https://github.com/jayoohy/monsters-rolodex",
   },
   {
-    id: 5,
+    id: 6,
     title: "Keeper App",
     description:
       "A minimalist note taking app, where users can add and delete notes, built with React.",
@@ -93,7 +105,7 @@ const projects = [
     githubUrl: "https://github.com/jayoohy/keeper-app",
   },
   {
-    id: 6,
+    id: 7,
     title: "Gatsby Blog",
     description: "Blog built with GatsbyJS and Graphql.",
     category: "web" as ProjectCategory,
